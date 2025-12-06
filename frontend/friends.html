@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocioSphere — Friends</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Specific Styles for Friends Page Layout */
+        .friends-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Two-column layout for Friends/Requests */
+        .friends-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px; /* Friends List | Requests/Suggestions */
+            gap: 30px;
+        }
+
+        /* Card styling for individual friends/requests */
+        .friend-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.15s;
+        }
+
+        .friend-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .friend-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .friend-info strong {
+            font-size: 16px;
+            color: var(--text);
+            display: block;
+        }
+
+        .friend-info span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Reusing the general avatar style */
+        .friend-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Button styles for actions */
+        .btn-small {
+            padding: 8px 15px;
+            width: auto;
+            font-size: 14px;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+        
+        .btn-accept {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-decline {
+            background: var(--bg);
+            color: var(--muted);
+            border: 1px solid var(--border);
+            box-shadow: none;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+             .friends-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="index.html" class="brand-logo">
+            <div class="logo-icon">SS</div>
+            <span>SocioSphere</span>
+        </a>
+        
+        <div class="profile-menu" style="display: flex; align-items: center; gap: 15px;">
+             <a href="index.html" class="sidebar-link" style="padding: 0; color: var(--muted);">Home</a>
+            <a href="profile.html" class="sidebar-link" style="padding: 0; color: var(--muted);">Profile</a>
+            <a href="settings.html" class="sidebar-link" style="padding: 0; color: var(--muted);">Settings</a>
+            <div class="post-avatar" style="width: 40px; height: 40px; font-size: 16px;">JD</div>
+            <a href="#" onclick="handleLogout(); return false;" class="sidebar-link link-logout" style="padding: 0; border-top: none; margin-top: 0;">Logout</a>
+        </div>
+    </header>
+
+    <main class="friends-container">
+        
+        <h2 style="font-size: 28px; margin-bottom: 20px;">My Network</h2>
+
+        <div class="friends-grid">
+            
+            <section class="friend-list">
+                
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: var(--text);">My Friends (3)</h3>
+
+                <div class="friend-card">
+                    <div class="friend-info">
+                        <div class="friend-avatar">AL</div>
+                        <div>
+                            <strong>Alice Lee</strong>
+                            <span>@alice_design</span>
+                        </div>
+                    </div>
+                    <div class="friend-actions">
+                        <button class="btn btn-secondary btn-small" style="background: var(--bg); color: var(--muted);">Message</button>
+                        <button class="btn btn-primary btn-small" style="background: var(--error); color: white;">Unfriend</button>
+                    </div>
+                </div>
+
+                <div class="friend-card">
+                    <div class="friend-info">
+                        <div class="friend-avatar" style="background: var(--secondary);">RG</div>
+                        <div>
+                            <strong>Robert Green</strong>
+                            <span>@robert_dev</span>
+                        </div>
+                    </div>
+                     <div class="friend-actions">
+                        <button class="btn btn-secondary btn-small" style="background: var(--bg); color: var(--muted);">Message</button>
+                        <button class="btn btn-primary btn-small" style="background: var(--error); color: white;">Unfriend</button>
+                    </div>
+                </div>
+                 
+                <div class="friend-card">
+                    <div class="friend-info">
+                        <div class="friend-avatar">SM</div>
+                        <div>
+                            <strong>Sara Miller</strong>
+                            <span>@sara_codes</span>
+                        </div>
+                    </div>
+                     <div class="friend-actions">
+                        <button class="btn btn-secondary btn-small" style="background: var(--bg); color: var(--muted);">Message</button>
+                        <button class="btn btn-primary btn-small" style="background: var(--error); color: white;">Unfriend</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <aside class="requests-suggestions">
+                
+                <div class="card" style="padding: 20px;">
+                    <h3 style="font-size: 20px; margin-bottom: 15px; color: var(--primary);">Friend Requests (2)</h3>
+                    
+                    <div class="friend-card" style="padding: 10px 0; margin-bottom: 15px; box-shadow: none; border-bottom: 1px dashed var(--border);">
+                        <div class="friend-info">
+                            <div class="friend-avatar" style="width: 40px; height: 40px; font-size: 16px; background: #2ecc71;">KH</div>
+                            <div>
+                                <strong>Kyle Harris</strong>
+                                <span style="font-size: 12px;">3 mutual friends</span>
+                            </div>
+                        </div>
+                        <div class="friend-actions">
+                            <button class="btn btn-small btn-accept">Accept</button>
+                            <button class="btn btn-small btn-decline">Decline</button>
+                        </div>
+                    </div>
+                    
+                    <div class="friend-card" style="padding: 10px 0; margin-bottom: 0; box-shadow: none; border-bottom: none;">
+                        <div class="friend-info">
+                            <div class="friend-avatar" style="width: 40px; height: 40px; font-size: 16px; background: #e67e22;">LS</div>
+                            <div>
+                                <strong>Lisa Smith</strong>
+                                <span style="font-size: 12px;">5 mutual friends</span>
+                            </div>
+                        </div>
+                        <div class="friend-actions">
+                            <button class="btn btn-small btn-accept">Accept</button>
+                            <button class="btn btn-small btn-decline">Decline</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" style="padding: 20px; margin-top: 30px;">
+                    <h3 style="font-size: 20px; margin-bottom: 15px; color: var(--secondary);">People You May Know</h3>
+                    
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div class="friend-info">
+                            <div class="friend-avatar" style="width: 40px; height: 40px; font-size: 16px; background: #3498db;">MT</div>
+                            <div>
+                                <strong>Mark Thomas</strong>
+                                <span style="font-size: 12px;">@mark_t</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-small" style="padding: 8px 12px;">Add</button>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+
+    </main>
+
+    <script>
+        // Redirect if not logged in
+        (function(){
+            if(!localStorage.getItem('socio_token')){
+                window.location.href = 'login.html';
+            }
+        })();
+
+        // Logout Function
+        function handleLogout() {
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem('socio_token');
+                localStorage.removeItem('socio_user');
+                window.location.href = 'login.html'; 
+            }
+        }
+    </script>
+</body>
+</html>

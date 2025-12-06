@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — SocioSphere</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="brand-logo">
+        <div class="logo-icon">SS</div>
+        <span>SocioSphere</span>
+    </a>
+
+    <div class="profile-menu">
+        <input type="text" placeholder="Search...">
+
+        <div class="post-avatar" onclick="window.location.href='profile.html'" style="cursor:pointer;">
+            <span id="headerAvatarInitials">JD</span>
+        </div>
+
+        <a href="#" onclick="handleLogout(); return false;" class="sidebar-link link-logout">Logout</a>
+    </div>
+</header>
+
+<main class="main-grid">
+
+    <aside class="sidebar">
+        <a href="index.html" class="sidebar-link">🏠 Dashboard</a>
+        <a href="profile.html" class="sidebar-link active">👤 My Profile</a>
+        <a href="messages.html" class="sidebar-link">💬 Messages</a>
+        <a href="friends.html" class="sidebar-link">👥 Friends</a>
+        <a href="settings.html" class="sidebar-link">⚙ Settings</a>
+        <a href="#" onclick="handleLogout(); return false;" class="sidebar-link link-logout">❌ Log Out</a>
+    </aside>
+
+    <section class="feed-area">
+
+        <div class="card profile-card">
+            <h2 id="profileName">Loading...</h2>
+            <p id="profileEmail"></p>
+        </div>
+
+        <h3>Your Posts</h3>
+        <div id="profilePosts"></div>
+
+    </section>
+
+</main>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocioSphere — Sign Up</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="centered-container">
+        <section class="auth-container">
+            
+            <div class="hero" style="flex: 1; padding: 40px; max-width: 520px;">
+                <div class="brand-logo" style="font-size: 22px; margin-bottom: 8px;">
+                    <div class="logo-icon" style="width: 56px; height: 56px; font-size: 20px; border-radius: 12px;">SS</div>
+                    Socio<span>Sphere</span>
+                </div>
+                <p style="color: var(--muted); font-size: 14px; margin-top: -15px;">Connect • Share • Be Heard</p>
+                
+                <div class="card" style="margin-top: 25px; padding: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));">
+                    <h2 style="margin: 0 0 8px 0; font-size: 20px;">Join the Sphere</h2>
+                    <p style="color: var(--muted); font-size: 14px; line-height: 1.5;">
+                        Create your free account in less than a minute. We focus on community and security.
+                    </p>
+                </div>
+
+                <div style="margin-top: 20px; font-size: 15px; text-align: center;">
+                    Already a member? 
+                    <a href="login.html" style="font-weight: 600;">Log in here</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 420px; max-width: 92%; padding: 40px 30px;">
+                <h3 style="font-size: 22px; margin: 0 0 6px 0;">Create Account</h3>
+                <p class="subtitle" style="margin: 0 0 25px 0; color: var(--muted); font-size: 14px;">Join SocioSphere and start connecting</p>
+
+                <form id="signupForm" onsubmit="handleSignup(event)">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text" placeholder="Choose a unique username" required />
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input id="email" name="email" type="email" placeholder="yourname@example.com" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" placeholder="••••••••" required minlength="8" />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input id="confirm-password" name="confirm-password" type="password" placeholder="••••••••" required />
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </form>
+
+                <div style="text-align: center; margin-top: 25px; font-size: 13px; color: var(--muted);">
+                    By signing up you agree to our <a href="#" style="font-weight: 600;">Terms</a> and <a href="#" style="font-weight: 600;">Privacy Policy</a>.
+                </div>
+            </div>
+        </section>
+    </div>
+
+   <script>
+async function handleSignup(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirm = document.getElementById("confirm-password").value.trim();
+
+    if (password !== confirm) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password })
+    });
+
+    const data = await res.json();
+    console.log("Signup Response:", data);
+
+    if (res.ok) {
+        alert("Account created successfully! Please login.");
+        window.location.href = "login.html";
+    } else {
+        alert(data.message || "Signup failed");
+    }
+}
+</script>
+
+</body>
+</html>
