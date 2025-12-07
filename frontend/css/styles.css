@@ -28,7 +28,8 @@ body {
 }
 
 a { color: var(--text); text-decoration:none; transition: color var(--transition); }
-a:hover { color: var(--text); }
+a:hover { color: var(--text);}
+
 
 /* --- Top-left Logo --- */
 .top-left-logo {
@@ -39,8 +40,8 @@ a:hover { color: var(--text); }
 }
 
 .top-left-logo .logo-circle {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     overflow: hidden;
     background-color: #fff;
@@ -50,9 +51,10 @@ a:hover { color: var(--text); }
 }
 
 .top-left-logo .logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+   max-width: 100%;
+   max-height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .top-left-logo .logo-text {
@@ -201,7 +203,7 @@ a:hover { color: var(--text); }
     .search-bar { width:80%; }
 }
 /* ================================
-   SOCIOSPHERE LOGIN PAGE (UPDATED)
+   SOCIOSPHERE LOGIN PAGE 
 ==================================*/
 
 /* Full-page center */
@@ -233,7 +235,7 @@ a:hover { color: var(--text); }
 }
 
 /* Brand */
-.brand-logo {
+.login-brand-logo {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -241,7 +243,7 @@ a:hover { color: var(--text); }
     color: #000;
 }
 
-.logo-icon {
+.login-logo-icon {
     background: var(--primary);
     color: #fff;
     display: flex;
@@ -252,7 +254,7 @@ a:hover { color: var(--text); }
 }
 
 /* Card styling */
-.card {
+.login-card {
     background: rgba(255,255,255,0.9);
     border-radius: 16px;
     padding: 30px;
@@ -266,7 +268,7 @@ a:hover { color: var(--text); }
 }
 
 /* Card hover glow */
-.card:hover {
+.login-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
@@ -300,7 +302,7 @@ a:hover { color: var(--text); }
 }
 
 /* Main button */
-.btn {
+.login-btn {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -310,14 +312,14 @@ a:hover { color: var(--text); }
     transition: 0.2s;
 }
 
-.btn-primary {
+.login-btn-primary {
     background: var(--primary);
     color: #fff;
     font-weight: 600;
     box-shadow: 0 4px 14px rgba(74, 138, 244, 0.35);
 }
 
-.btn-primary:hover {
+.login-btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(74, 138, 244, 0.45);
 }
@@ -330,7 +332,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     opacity: 0.8;
 }
 
@@ -365,143 +367,4 @@ a:hover {
 @keyframes slideRight {
     from { opacity: 0; transform: translateX(40px); }
     to   { opacity: 1; transform: translateX(0); }
-}
-/* ===========================================
-   SOCIOSPHERE — FRIENDS PAGE
-   Clean, Dynamic, Backend-Friendly
-=========================================== */
-
-/* Page container */
-.friends-container {
-    max-width: 1200px;
-    margin: 100px auto 40px;
-    padding: 0 20px;
-}
-
-/* Grid layout: Friends (left) + Requests/Suggestions (right) */
-.friends-grid {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 30px;
-}
-
-/* Section headers */
-.friends-container h2,
-.friends-container h3 {
-    color: var(--text);
-    font-weight: 700;
-}
-
-/* Reusable card design */
-.friend-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--card);
-    padding: 16px 18px;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 14px;
-    transition: 0.25s ease;
-}
-
-/* Hover lift effect */
-.friend-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-}
-
-/* Avatar circle */
-.friend-avatar {
-    width: 48px;
-    height: 48px;
-    background: var(--primary);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 18px;
-}
-
-/* Friend info block */
-.friend-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.friend-info strong {
-    font-size: 16px;
-    color: var(--text);
-}
-
-.friend-info span {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-/* Action buttons */
-.friend-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-small {
-    padding: 7px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-.btn-accept {
-    background: var(--primary);
-    color: #fff;
-}
-
-.btn-decline {
-    background: var(--bg);
-    color: var(--muted);
-    border: 1px solid var(--border);
-}
-
-/* Suggestion items */
-.suggestion-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px dashed var(--border);
-}
-
-.suggestion-item:last-child {
-    border-bottom: none;
-}
-
-/* Right sidebar card */
-.right-card {
-    background: var(--card);
-    padding: 18px;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    animation: fadeUp 0.4s ease;
-}
-
-/* Animations */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .friends-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .suggestion-item {
-        justify-content: flex-start;
-        gap: 20px;
-    }
 }

@@ -1,0 +1,65 @@
+/* ---- GLOBAL PAGE STYLING ---- */
+body.splash-page {
+    margin: 0;
+    padding: 0;
+    background: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Playfair Display", serif;
+}
+
+/* ---- CONTAINER ---- */
+.splash-page .container {
+    position: relative;
+    text-align: center;
+}
+
+
+/* ---- GLOBE ---- */
+.splash-page .globe {
+    width: 340px;
+    animation: fadeIn 1s ease forwards;
+    filter: drop-shadow(0 0 25px #4ca3ff);
+    position: relative;
+    z-index: 3;
+}
+
+
+/* ---- TITLE ---- */
+.splash-page .title {
+    font-size: 64px;
+    margin-top: 4px;        /* small space under globe */
+    letter-spacing: 4px;
+    background: linear-gradient(to right, #d6d6d6, #7bbcff, #e8e8e8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 18px rgba(120, 180, 255, 0.6);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;  /* faster fade */
+}
+
+/* ---- SUBTITLE ---- */
+.splash-page .subtitle {
+    font-size: 22px;
+    color: #b4d9ff;
+    letter-spacing: 2px;
+    margin-top: -40px;      /* VERY close to SOCIOSPHERE */
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.2s; /* fast + slight delay */
+}
+
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
