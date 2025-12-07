@@ -2,74 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SocioSphere — Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-    <header class="header">
-        <a href="index.html" class="brand-logo">
-            <div class="logo-icon">SS</div>
-            <span>SocioSphere</span>
-        </a>
-
-        <div class="profile-menu">
-            <input type="text" placeholder="Search...">
-
-            <!-- 🔥 Avatar Click Fix -->
-            <div class="post-avatar" onclick="window.location.href='profile.html'" style="cursor:pointer;">
-                <img id="headerAvatarImg" src="" alt="Avatar">
-                <span id="headerAvatarInitials">JD</span>
-            </div>
-
-            <a href="#" onclick="handleLogout(); return false;" class="sidebar-link link-logout">Logout</a>
+ <div class="top-left-logo">
+        <div class="logo-circle">
+            <img src="globe.png" alt="Logo" class="logo-img">
         </div>
-    </header>
+        <span class="logo-text">SocioSphere</span>
+    </div>
 
-    <main class="main-grid">
+<main class="main-grid">
 
-        <aside class="sidebar">
-            <a href="index.html" class="sidebar-link active">🏠 Dashboard</a>
-            <a href="profile.html" class="sidebar-link">👤 My Profile</a>
-            <a href="messages.html" class="sidebar-link">💬 Messages</a>
-            <a href="friends.html" class="sidebar-link">👥 Friends</a>
-            <a href="settings.html" class="sidebar-link">⚙ Settings</a>
-            <a href="#" onclick="handleLogout(); return false;" class="sidebar-link link-logout">❌ Log Out</a>
-        </aside>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+    
+        <!-- Sidebar Links -->
+        <a href="index.html" class="sidebar-link active">
+            <span>🏠</span> Dashboard
+        </a>
+        <a href="profile.html" class="sidebar-link">
+            <span>👤</span> My Profile
+        </a>
+        <a href="messages.html" class="sidebar-link">
+            <span>💬</span> Messages
+        </a>
+        <a href="friends.html" class="sidebar-link">
+            <span>👥</span> Friends
+        </a>
+        <a href="settings.html" class="sidebar-link">
+            <span>⚙</span> Settings
+        </a>
+        <a href="#" onclick="handleLogout(); return false;" class="sidebar-link link-logout">
+            <span>❌</span> Log Out
+        </a>
+    </aside>
 
-        <section class="feed-area">
+    <!-- Feed Area -->
+    <section class="feed-area">
 
-            <div class="card create-post-card">
-                <p>What's on your mind?</p>
-                <div class="input-group">
-                    <textarea id="postContent" placeholder="Share a thought, photo, or achievement..."></textarea>
-                    <button id="postButton" class="btn btn-primary">Post to Sphere</button>
+        <!-- Search Bar at top of feed -->
+        <div class="search-bar-wrapper">
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+
+        <!-- Create Post -->
+        <div class="card create-post-card">
+            <p>What's on your mind?</p>
+            <div class="input-group">
+                <textarea id="postContent" placeholder="Share a thought, photo, or achievement..."></textarea>
+                <button id="postButton" class="btn btn-primary">Post to Sphere</button>
+            </div>
+        </div>
+
+        <!-- Example Feed Post -->
+        <article class="card post-card">
+            <div class="post-top">
+                <div class="avatar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>Alice Lee</strong>
+                    <span>5 minutes ago · #CleanDesign</span>
                 </div>
             </div>
-
-            <input type="file" id="mediaInput" accept="image/*,video/*" style="display:none" />
-
-            <div id="previewModal" class="modal-hidden">
-                <h3>Preview Your Post</h3>
-                <div id="mediaPreview"></div>
-                <textarea id="captionInput" placeholder="Add a caption (optional)"></textarea>
-                <button id="confirmPost" class="btn btn-primary">Confirm Post</button>
+            <div class="post-content">
+                <p>I love the peaceful aesthetic of SocioSphere! The consistent use of shadows and colors makes the feed feel so calm and focused. Well done!</p>
             </div>
-
-            <p id="status"></p>
-        </section>
-
-        <aside class="widgets-area">
-            <div class="card widget-card">
-                <h4>Suggested Friends</h4>
-                <div><strong>Tom H.</strong><p>3 mutual connections</p></div>
-                <div><strong>Sarah J.</strong><p>Followed by Alice Lee</p></div>
+            <div class="post-actions">
+                <a href="#"><span class="heart">❤</span> 15 Likes</a>
+                <a href="#">💬 3 Comments</a>
             </div>
-        </aside>
+        </article>
 
-    </main>
+    </section>
 
-    <script src="js/script.js"></script>
+</main>
+
+<script src="js/script.js"></script>
 </body>
 </html>

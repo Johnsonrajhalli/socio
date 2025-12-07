@@ -1,260 +1,507 @@
 /* =======================================================
-   SOCIOSPHERE GLOBAL STYLESHEET
-   -------------------------------------------------------
-   A clean, modern, and consistent design language
-   using defined CSS variables.
+   SOCIOSPHERE DASHBOARD - PROFESSIONAL & COLORFUL
 ========================================================== */
 
-/* --- 1. Root Variables & Colors --- */
+/* --- Root Variables --- */
 :root {
-    --primary: #4A8AF4; /* Light Blue/Azure for main actions, links, active state */
-    --secondary: #6C63FF; /* Purple/Accent for secondary actions and branding */
-    --bg: #F7F9FC; /* Light background for the overall page */
-    --card: #ffffff; /* White background for cards and containers */
-    --text: #1f2d3d; /* Dark text for headings and main content */
-    --muted: #8c93a8; /* Muted grey for subheadings, helper text, and inactive links */
-    --border: #e6e6e6; /* Light grey for subtle borders and dividers */
-    --error: #E74C3C; /* Red for errors and logout actions */
-    
-    --radius: 14px; /* Standard border radius for cards and inputs */
-    --shadow: 0 8px 30px rgba(28, 39, 60, 0.08); /* Standard card shadow */
-    --input-shadow: 0 6px 18px rgba(33, 47, 73, 0.06); /* Lighter shadow for inputs */
-    --transition: 0.25s ease; /* Standard transition time */
+    --primary: #4A8AF4;
+    --secondary: #6C63FF;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1f2d3d;
+    --muted: #8c93a8;
+    --border: #e6e6e6;
+    --radius: 14px;
+    --shadow: 0 8px 30px rgba(28,39,60,0.08);
+    --input-shadow: 0 6px 18px rgba(33,47,73,0.06);
+    --transition: 0.25s ease;
 }
 
-/* --- 2. Base & Typography Reset --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* --- Base --- */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-    /* Uses the system font stack for best performance and native feel */
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: var(--text);
-    background: var(--bg);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     min-height: 100vh;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color var(--transition);
+a { color: var(--text); text-decoration:none; transition: color var(--transition); }
+a:hover { color: var(--text); }
+
+/* --- Top-left Logo --- */
+.top-left-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
 }
 
-a:hover {
-    color: var(--secondary);
-}
-
-/* --- 3. Layout Utilities (Auth & Main Grid) --- */
-
-/* Utility for centering content (used on Login/Signup pages) */
-.centered-container {
+.top-left-logo .logo-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 36px 20px;
 }
 
-/* Two-column layout for Auth pages */
-.auth-container {
-    width: 90%;
-    max-width: 1100px;
-    display: flex;
-    gap: 40px;
-    align-items: center;
+.top-left-logo .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Main content grid for the Index/Feed page */
+.top-left-logo .logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text);
+}
+
+/* --- Layout --- */
 .main-grid {
     display: grid;
-    grid-template-columns: 240px 1fr 300px; /* Sidebar | Feed | Widgets */
+    grid-template-columns: 240px 1fr; /* Sidebar + Feed only */
     max-width: 1200px;
     margin: 20px auto;
     gap: 30px;
     padding: 0 20px;
 }
 
-/* --- 4. Component: Cards & Forms --- */
-
-/* Standard Card Style (Used for Auth forms, Feed posts, Widgets) */
-.card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 25px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(30, 40, 60, 0.04);
-    margin-bottom: 20px;
-}
-
-/* Input Fields */
-.input-group {
+/* --- Sidebar --- */
+.sidebar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
+    padding: 20px 0 20px 10px;
 }
-.input-group label {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 600;
+
+.sidebar-link {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px 15px;
+    color: var(--text);
+    font-weight:500;
+    margin-bottom:5px;
+    border-radius:8px;
+    transition: var(--transition);
 }
-.input-group input, .input-group textarea {
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    outline: none;
-    background: linear-gradient(180deg, #ffffff, #fbfdff);
+.sidebar-link span {
+    display:flex;
+    width:28px;
+    height:28px;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    transition: background 0.3s, color 0.3s;
+}
+.sidebar-link:hover, .sidebar-link.active {
+    color:#1f2d3d;
+    background: linear-gradient(90deg, rgba(74,138,244,0.1), rgba(108,99,255,0));
+}
+.sidebar-link:hover span, .sidebar-link.active span {
+    background: linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+}
+.link-logout {
+    color: #E74C3C; /* Red for logout */
+}
+.link-logout:hover {
+    background: rgba(231,76,60,0.1);
+    color: #E74C3C;
+}
+
+/* --- Search Bar --- */
+.search-bar-wrapper { display:flex; justify-content:center; margin:0 0 20px 0; }
+.search-bar {
+    width:60%;
+    max-width:500px;
+    padding:10px 15px;
+    border-radius:25px;
+    border:1px solid var(--border);
     box-shadow: var(--input-shadow);
-    font-size: 14px;
-    color: var(--text);
-    transition: box-shadow var(--transition), border-color var(--transition);
-    font-family: inherit; /* Ensure textarea matches font */
+    font-size:14px;
+    outline:none;
+    transition: box-shadow 0.25s, border-color 0.25s;
 }
-.input-group input:focus, .input-group textarea:focus {
-    box-shadow: 0 8px 24px rgba(74, 138, 244, 0.12);
-    border-color: rgba(74, 138, 244, 0.35);
+.search-bar:focus { border-color: var(--primary); box-shadow:0 0 20px rgba(74,138,244,0.3); }
+
+/* --- Cards --- */
+.card { 
+    background: var(--card); 
+    border-radius: var(--radius); 
+    padding:25px; 
+    box-shadow: var(--shadow); 
+    border:1px solid rgba(30,40,60,0.04); 
+    margin-bottom:20px; 
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s; 
 }
+.card:hover { transform: translateY(-4px); box-shadow:0 12px 35px rgba(108,99,255,0.2); }
 
-/* Buttons */
-.btn {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: none;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.12s, box-shadow 0.12s, opacity 0.12s;
+/* Create Post Card */
+.create-post-card { 
+    background: linear-gradient(135deg, rgba(74,138,244,0.1), rgba(108,99,255,0.1)); 
+    border:1px solid rgba(108,99,255,0.2); 
+    border-radius:25px; 
+    padding:20px; 
+    box-shadow:0 6px 25px rgba(108,99,255,0.15); 
 }
-
-.btn-primary {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.12);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(108, 99, 255, 0.18);
-}
-
-.btn-primary:active {
-    transform: translateY(0px);
-}
-
-/* --- 5. Component: Header & Navigation --- */
-
-.header {
-    background: var(--card);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    padding: 15px 40px;
+.create-post-card:hover { transform: translateY(-4px); box-shadow:0 12px 35px rgba(108,99,255,0.3); }
+.create-post-card textarea { border-radius:20px; padding:12px 14px; width:100%; }
+.create-post-card .input-group {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    justify-content: flex-end; 
+    gap: 30px; 
+    margin-top: 10px;
 }
 
-/* SocioSphere Logo/Brand styling */
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    text-decoration: none;
+/* Post Card */
+.post-card { 
+    background:#fff; 
+    border-radius:var(--radius); 
+    padding:20px; 
+    box-shadow:0 6px 25px rgba(108,99,255,0.15); 
 }
-.brand-logo .logo-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+.post-card:hover { transform:translateY(-6px); box-shadow:0 12px 35px rgba(108,99,255,0.3); }
+.post-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+
+/* Avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e0e0e0; /* light grey */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 16px;
-    box-shadow: 0 4px 12px rgba(74, 138, 244, 0.18);
+    flex-shrink: 0;
+}
+.avatar svg {
+    width: 20px;
+    height: 20px;
+    fill: #999; /* slightly darker grey */
 }
 
-/* Sidebar Links */
-.sidebar-link {
+/* Buttons */
+.btn { width:30%; padding:10px 0px; border-radius:8px; border:none; font-size:15px; font-weight:600; cursor:pointer; transition: transform 0.12s, box-shadow 0.12s, opacity 0.12s; }
+.btn-primary { background: linear-gradient(90deg,#4A8AF4,#6C63FF); color:white; box-shadow:0 10px 30px rgba(108,99,255,0.2); }
+.btn-primary:hover { transform: translateY(-2px) scale(1.05); box-shadow:0 12px 38px rgba(108,99,255,0.3); }
+
+/* Post Actions */
+.post-actions a { margin-right:15px; font-weight:500; font-size:14px; }
+.post-actions .heart { color: #E74C3C; margin-right: 4px; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .main-grid{ grid-template-columns:1fr; padding:0 15px; }
+    .sidebar{ display:none; }
+    .search-bar { width:80%; }
+}
+/* ================================
+   SOCIOSPHERE LOGIN PAGE (UPDATED)
+==================================*/
+
+/* Full-page center */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg);
+    padding: 20px;
+
+    /* Smooth fade-in */
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Side-by-side layout */
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;  /* spacing between left + right */
+    flex-wrap: nowrap;
+}
+
+/* Left section (brand + intro) */
+.hero {
+    text-align: left !important;
+    animation: slideLeft 0.6s ease-out;
+}
+
+/* Brand */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: #000;
+}
+
+.logo-icon {
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(74, 138, 244, 0.25);
+}
+
+/* Card styling */
+.card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 16px;
+    padding: 30px;
+    width: 420px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+    backdrop-filter: blur(6px);
+
+    /* smooth appear */
+    animation: slideRight 0.6s ease-out;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Card hover glow */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Input fields */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.input-group input {
+    padding: 12px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input focus effect */
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 6px rgba(74, 138, 244, 0.4);
+    outline: none;
+}
+
+/* Main button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(74, 138, 244, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(74, 138, 244, 0.45);
+}
+
+/* Links */
+a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .auth-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero {
+        text-align: center !important;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+/* ===========================================
+   SOCIOSPHERE — FRIENDS PAGE
+   Clean, Dynamic, Backend-Friendly
+=========================================== */
+
+/* Page container */
+.friends-container {
+    max-width: 1200px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+}
+
+/* Grid layout: Friends (left) + Requests/Suggestions (right) */
+.friends-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* Section headers */
+.friends-container h2,
+.friends-container h3 {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* Reusable card design */
+.friend-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+    padding: 16px 18px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 14px;
+    transition: 0.25s ease;
+}
+
+/* Hover lift effect */
+.friend-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+}
+
+/* Avatar circle */
+.friend-avatar {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Friend info block */
+.friend-info {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 12px 15px;
+}
+
+.friend-info strong {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.friend-info span {
+    font-size: 13px;
     color: var(--muted);
-    text-decoration: none;
-    font-weight: 500;
-    margin-bottom: 5px;
+}
+
+/* Action buttons */
+.friend-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 7px 14px;
     border-radius: 8px;
-    transition: var(--transition);
+    font-size: 14px;
 }
 
-.sidebar-link:hover, .sidebar-link.active {
-    background: linear-gradient(90deg, rgba(74,138,244,0.1), rgba(108,99,255,0));
-    color: var(--primary);
-    font-weight: 600;
+.btn-accept {
+    background: var(--primary);
+    color: #fff;
 }
 
-/* Logout styling */
-.link-logout {
-    color: var(--error) !important;
-    border-top: 1px solid var(--border);
-    margin-top: 20px;
-    padding-top: 20px !important;
+.btn-decline {
+    background: var(--bg);
+    color: var(--muted);
+    border: 1px solid var(--border);
 }
 
-/* --- 6. Responsive Design --- */
+/* Suggestion items */
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border);
+}
 
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+/* Right sidebar card */
+.right-card {
+    background: var(--card);
+    padding: 18px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    animation: fadeUp 0.4s ease;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-    /* Auth Page */
-    .auth-container {
-        flex-direction: column-reverse;
-        padding: 28px 18px;
-    }
-    /* Hide the hero section on small screens if desired, or center content */
-    .auth-container .hero {
-        text-align: center;
-        width: 100%;
-        max-width: 420px;
+    .friends-grid {
+        grid-template-columns: 1fr;
     }
 
-    /* Index Page */
-    .header {
-        padding: 15px 20px;
+    .suggestion-item {
+        justify-content: flex-start;
+        gap: 20px;
     }
-    .main-grid {
-        grid-template-columns: 1fr; /* Stack Feed */
-        padding: 0 15px;
-    }
-    .main-grid .sidebar, .main-grid .widgets-area {
-        display: none; /* Hide sidebars on mobile */
-    }
-}
-.modal-hidden {
-    display: none;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
-}
-
-.profile-card {
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#profilePosts .post-card {
-    margin-bottom: 20px;
 }
