@@ -1,0 +1,213 @@
+/* =======================================================
+    SocioSphere - Messages Page Styling
+========================================================== */
+
+:root {
+    --primary: #4A8AF4;
+    --secondary: #6C63FF;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1c273c;
+    --light-text: #6c7a92;
+    --shadow: 0 8px 30px rgba(28,39,60,0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Logo */
+.top-left-logo {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
+}
+
+.logo-img {
+    width: 100%;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Main Layout */
+.main-grid {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+    padding: 20px 40px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--card);
+    padding: 25px 0;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 25px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: #eef3ff;
+    color: var(--primary);
+}
+
+.link-logout {
+    color: #d43f3f;
+}
+
+/* =======================================================
+    MESSAGE PAGE CONTENT
+========================================================== */
+
+.messages-container {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 25px;
+    height: 78vh;
+}
+
+/* Chat List */
+.chat-list {
+    background: var(--card);
+    box-shadow: var(--shadow);
+    border-radius: 16px;
+    padding: 15px 0;
+    overflow-y: auto;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f5;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.chat-item:hover,
+.chat-item.active {
+    background: #eef3ff;
+}
+
+.chat-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chat-info strong {
+    font-size: 16px;
+    display: block;
+}
+
+.chat-info span {
+    font-size: 13px;
+    color: var(--light-text);
+}
+
+/* Chat Window */
+.chat-window {
+    background: var(--card);
+    box-shadow: var(--shadow);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #f0f0f5;
+    padding-bottom: 12px;
+}
+
+.chat-header img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+/* Messages Area */
+.chat-body {
+    flex: 1;
+    padding: 15px 5px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 55%;
+    padding: 12px 18px;
+    border-radius: 14px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.message.received {
+    background: #eef3ff;
+    color: var(--text);
+    align-self: flex-start;
+}
+
+.message.sent {
+    background: var(--primary);
+    color: white;
+    align-self: flex-end;
+}
+
+/* Message Input */
+.chat-input-area {
+    display: flex;
+    gap: 12px;
+    border-top: 1px solid #f0f0f5;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #d0d5df;
+    font-size: 15px;
+}
+
+.send-btn {
+    background: #3d7ae0;
+}

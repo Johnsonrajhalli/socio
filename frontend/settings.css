@@ -1,0 +1,180 @@
+/* ============================================================
+   SOCIOSPHERE — SETTINGS PAGE (Clean & Professional)
+============================================================ */
+
+/* --- Root Colors --- */
+:root {
+    --primary: #4A8AF4;
+    --secondary: #6C63FF;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text-dark: #1c1c1c;
+    --text-light: #555;
+    --border: #e4e6eb;
+}
+
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    padding: 20px;
+}
+
+/* --- Page Container --- */
+.settings-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+/* --- Page Title --- */
+.settings-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+/* --- Settings Card --- */
+.settings-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+}
+
+/* --- Section Header --- */
+.section-header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text-dark);
+}
+
+/* --- Input Fields --- */
+.settings-group {
+    margin-bottom: 18px;
+}
+
+.settings-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.settings-group input,
+.settings-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.settings-group input:focus,
+.settings-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 4px rgba(74,138,244,0.4);
+}
+
+/* --- Toggle Switch --- */
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.toggle-label {
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background: #ccc;
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background: var(--primary);
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* --- Save Button --- */
+.save-btn {
+    margin-top: 10px;
+    padding: 12px 22px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.save-btn:hover {
+    background: var(--secondary);
+}
+
+/* --- Danger Zone --- */
+.danger-zone {
+    border: 2px solid #ff4c4c;
+    background: #ffe6e6;
+}
+
+.delete-btn {
+    padding: 12px 22px;
+    background: #ff4c4c;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    background: #d60000;
+}

@@ -1,0 +1,158 @@
+/* =======================================================
+    SocioSphere - Profile Page Styling
+========================================================== */
+
+:root {
+    --primary: #4A8AF4;
+    --secondary: #6C63FF;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1c273c;
+    --light-text: #6c7a92;
+    --shadow: 0 8px 30px rgba(28,39,60,0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Logo Top Left */
+.top-left-logo {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
+}
+
+.logo-img {
+    width: 100%;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Main Grid */
+.main-grid {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+    padding: 20px 40px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--card);
+    padding: 25px 0;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    height: fit-content;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 25px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: #eef3ff;
+    color: var(--primary);
+}
+
+.link-logout {
+    color: #d43f3f;
+}
+
+/* Profile Area */
+.profile-area {
+    width: 100%;
+}
+
+.profile-card {
+    background: var(--card);
+    box-shadow: var(--shadow);
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.profile-username {
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat strong {
+    font-size: 22px;
+    display: block;
+}
+
+.edit-btn {
+    margin-top: 15px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.edit-btn:hover {
+    background: #3d7ae0;
+}
+
+/* About */
+.section-title {
+    margin-top: 40px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.about-text {
+    margin-top: 10px;
+    line-height: 1.7;
+    color: var(--light-text);
+}

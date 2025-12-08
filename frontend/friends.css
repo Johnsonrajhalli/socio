@@ -1,0 +1,150 @@
+/* ============================================================
+   SOCIOSPHERE — FRIENDS PAGE (Clean & Modern)
+============================================================ */
+
+/* --- Root Colors --- */
+:root {
+    --primary: #4A8AF4;
+    --secondary: #6C63FF;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text-dark: #1c1c1c;
+    --text-light: #555;
+    --border: #e4e6eb;
+}
+
+/* --- General Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    padding: 25px;
+}
+
+/* --- Page Container --- */
+.friends-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* --- Page Title --- */
+.page-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+/* --- Search Bar --- */
+.search-box {
+    width: 100%;
+    background: var(--card);
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+/* --- Friends List Grid --- */
+.friends-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* --- Friend Card --- */
+.friend-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.friend-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+
+/* --- Profile Image --- */
+.friend-card img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 3px solid var(--primary);
+}
+
+/* --- Name --- */
+.friend-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+/* --- Mutual Friends --- */
+.friend-mutual {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+/* --- Buttons --- */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+/* Primary (Add / Confirm) */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+}
+
+/* Secondary (Remove / Cancel) */
+.btn-secondary {
+    background: #f0f0f0;
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+/* --- Requests Section Title --- */
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 25px 0 15px;
+    color: var(--text-dark);
+}
